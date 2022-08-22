@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { PctLoginComponent } from './login/pct-login/pct-login.component';
 import { MainMenuComponent } from './menu/main-menu/main-menu.component';
 import { ScannerComponent } from './menu/scan/scanner/scanner.component';
+import { ScoresDisplayComponent } from './menu/scores/scores-display/scores-display.component';
 
 @NgModule({
   imports: [BrowserModule, AppRoutingModule, FormsModule],
@@ -17,6 +18,7 @@ import { ScannerComponent } from './menu/scan/scanner/scanner.component';
     AppComponent,
     HelloComponent,
     ScannerComponent,
+    ScoresDisplayComponent
   ],
   bootstrap: [AppComponent],
 })
