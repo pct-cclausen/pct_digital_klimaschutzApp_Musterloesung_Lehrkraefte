@@ -6,10 +6,16 @@ import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
 import { AppRoutingModule } from './app-routing.module';
 import { PctLoginComponent } from './login/pct-login/pct-login.component';
+import { MainMenuComponent } from './menu/main-menu/main-menu.component';
 
 @NgModule({
   imports: [BrowserModule, AppRoutingModule, FormsModule],
-  declarations: [PctLoginComponent, AppComponent, HelloComponent],
+  declarations: [
+    MainMenuComponent,
+    PctLoginComponent,
+    AppComponent,
+    HelloComponent,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
