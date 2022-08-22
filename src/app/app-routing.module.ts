@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { HelloComponent } from './hello.component';
 import { PctLoginComponent } from './login/pct-login/pct-login.component';
 import { LoginGuard } from './login-guard.guard';
+import { MainMenuComponent } from './menu/main-menu/main-menu.component';
 
 const routes: Routes = [
   {
@@ -11,14 +12,14 @@ const routes: Routes = [
   },
 
   {
-    path: '',
-    component: HelloComponent,
+    path: 'menu',
+    component: MainMenuComponent,
     canActivate: [LoginGuard],
   },
 
   {
     path: '**',
-    redirectTo: '',
+    redirectTo: 'menu',
     pathMatch: 'full',
   },
 ];
