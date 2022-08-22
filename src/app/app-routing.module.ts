@@ -5,6 +5,8 @@ import { PctLoginComponent } from './login/pct-login/pct-login.component';
 import { LoginGuard } from './login-guard.guard';
 import { MainMenuComponent } from './menu/main-menu/main-menu.component';
 import { ScannerComponent } from './menu/scan/scanner/scanner.component';
+import { ScoresDisplayComponent } from './menu/scores/scores-display/scores-display.component';
+import { CreateCodeComponent } from './menu/create/create-code/create-code.component';
 
 const routes: Routes = [
   {
@@ -23,6 +25,14 @@ const routes: Routes = [
       {
         path: 'scan',
         component: ScannerComponent,
+      },
+      {
+        path: 'scores',
+        component: ScoresDisplayComponent,
+      },
+      {
+        path: 'create',
+        component: CreateCodeComponent,
       },
     ],
   },
