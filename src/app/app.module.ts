@@ -7,6 +7,7 @@ import { HelloComponent } from './hello.component';
 import { AppRoutingModule } from './app-routing.module';
 import { PctLoginComponent } from './login/pct-login/pct-login.component';
 import { MainMenuComponent } from './menu/main-menu/main-menu.component';
+import { ScannerComponent } from './menu/scan/scanner/scanner.component';
 
 @NgModule({
   imports: [BrowserModule, AppRoutingModule, FormsModule],
@@ -15,6 +16,7 @@ import { MainMenuComponent } from './menu/main-menu/main-menu.component';
     PctLoginComponent,
     AppComponent,
     HelloComponent,
+    ScannerComponent,
   ],
   bootstrap: [AppComponent],
 })

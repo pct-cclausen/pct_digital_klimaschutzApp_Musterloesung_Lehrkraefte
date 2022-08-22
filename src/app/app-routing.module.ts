@@ -4,6 +4,7 @@ import { HelloComponent } from './hello.component';
 import { PctLoginComponent } from './login/pct-login/pct-login.component';
 import { LoginGuard } from './login-guard.guard';
 import { MainMenuComponent } from './menu/main-menu/main-menu.component';
+import { ScannerComponent } from './menu/scan/scanner/scanner.component';
 
 const routes: Routes = [
   {
@@ -13,8 +14,17 @@ const routes: Routes = [
 
   {
     path: 'menu',
-    component: MainMenuComponent,
     canActivate: [LoginGuard],
+    children: [
+      {
+        path: '',
+        component: MainMenuComponent,
+      },
+      {
+        path: 'scan',
+        component: ScannerComponent,
+      },
+    ],
   },
 
   {
@@ -25,11 +35,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [
-    RouterModule.forRoot(routes, {
-      preloadingStrategy: PreloadAllModules,
-    }),
-  ],
+  imports: [RouterModule.forRoot(routes, {})],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
