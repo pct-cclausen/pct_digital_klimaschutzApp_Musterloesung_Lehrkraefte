@@ -1,6 +1,5 @@
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
-import { HelloComponent } from './hello.component';
 import { PctLoginComponent } from './login/pct-login/pct-login.component';
 import { LoginGuard } from './login-guard.guard';
 import { MainMenuComponent } from './menu/main-menu/main-menu.component';
@@ -16,23 +15,26 @@ const routes: Routes = [
 
   {
     path: 'menu',
-    canActivate: [LoginGuard],
     children: [
       {
         path: '',
         component: MainMenuComponent,
+        canActivate: [LoginGuard],
       },
       {
         path: 'scan',
         component: ScannerComponent,
+        canActivate: [LoginGuard],
       },
       {
         path: 'scores',
         component: ScoresDisplayComponent,
+        canActivate: [LoginGuard],
       },
       {
         path: 'create',
         component: CreateCodeComponent,
+        canActivate: [LoginGuard],
       },
     ],
   },
