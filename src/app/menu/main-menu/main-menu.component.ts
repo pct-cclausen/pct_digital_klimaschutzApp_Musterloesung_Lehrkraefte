@@ -4,18 +4,15 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-main-menu',
   templateUrl: './main-menu.component.html',
-  styleUrls: ['./main-menu.component.css']
+  styleUrls: ['./main-menu.component.css'],
 })
 export class MainMenuComponent implements OnInit {
+  constructor(private router: Router) {}
 
-  constructor(private router: Router) { }
-
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   logout() {
-    delete localStorage["current-user"];
-    this.router.navigate(["/"]);
+    delete localStorage['current-user'];
+    this.router.navigate(['/login']);
   }
-
 }
