@@ -9,9 +9,10 @@ import { MainMenuComponent } from './menu/main-menu/main-menu.component';
 import { ScannerComponent } from './menu/scan/scanner/scanner.component';
 import { ScoresDisplayComponent } from './menu/scores/scores-display/scores-display.component';
 import { CreateCodeComponent } from './menu/create/create-code/create-code.component';
+import { QRCodeModule } from 'angularx-qrcode';
 
 @NgModule({
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, QRCodeModule],
   declarations: [
     MainMenuComponent,
     PctLoginComponent,

@@ -12,3 +12,13 @@
 <div>
   <button (click)="generate()">Erzeuge QR Code</button>
 </div>
+
+<div *ngIf="jwt.length > 0">
+  <qrcode
+    (qrCodeURL)="onChangeURL($event)"
+    [qrdata]="jwt"
+    [width]="512"
+    [errorCorrectionLevel]="'M'"
+  ></qrcode>
+  <a [href]="dlLink" download="qrcode">Download</a>
+</div>

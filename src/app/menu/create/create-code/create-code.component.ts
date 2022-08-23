@@ -11,6 +11,9 @@ export class CreateCodeComponent implements OnInit {
   description = '';
   points = 0;
 
+  jwt = '';
+  dlLink: any;
+
   constructor(private backend: BackendService) {}
 
   ngOnInit() {}
@@ -26,6 +29,11 @@ export class CreateCodeComponent implements OnInit {
         this.points
       );
       const jwt = await this.backend.generateQRCode(id, this.password);
+      this.jwt = jwt;
     }
+  }
+
+  onChangeURL(url: any) {
+    this.dlLink = url;
   }
 }
