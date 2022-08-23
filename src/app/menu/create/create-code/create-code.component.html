@@ -1,2 +1,14 @@
-<p>create-code works!</p>
-!
+<div>QR Code erzeugen</div>
+
+<div>Passwort<input [(ngModel)]="password" type="text" /></div>
+
+<div>Beschreibung<input [(ngModel)]="description" type="text" /></div>
+
+<div>
+  Punkte
+  <input [(ngModel)]="points" type="number" />
+</div>
+
+<div>
+  <button (click)="generate()">Erzeuge QR Code</button>
+</div>
