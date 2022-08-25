@@ -2,6 +2,15 @@
 
 [![Fork mit Stackblitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/fork/github/pct-cclausen/angular-ivy-mc4ukw?title=WIP%20Schulprojekt&terminal=start)
 
+# Schritt zum Einrichten eines Forks
+
+1. Forke dieses Repository auf Github
+1. Erstelle einen Stackblitz Link zum arbeiten an deinem Fork:
+
+https://stackblitz.com/fork/github/DEIN_GITHUB_USER/DEIN_GITHUB_REPOSITORY?title=WIP%20Schulprojekt&terminal=start
+
+Die zwei Capslock Teile austauschen mit deinen Daten, dann den Link aufrufen.
+
 # TODOs
 
 1. CSS Login: login/pct-login html and css file
