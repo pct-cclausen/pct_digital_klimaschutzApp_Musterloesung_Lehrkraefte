@@ -1,7 +1,9 @@
-<div>Für wen werden Punkte gesammelt?</div>
-
+<p>Für wen werden Punkte gesammelt?</p>
+<body>
 <div>
-  <input [(ngModel)]="userName" type="text" />
+  <input [(ngModel)]="userName" type="text" placeholder="Benutzer"/>
 
-  <button (click)="loginHandler()">Los gehts</button>
+  <button (click)="loginHandler()">Login</button>
 </div>
+<img [src]="pctlogo">
+</body>
