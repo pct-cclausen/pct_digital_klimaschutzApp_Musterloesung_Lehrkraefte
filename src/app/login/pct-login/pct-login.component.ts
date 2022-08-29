@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { pctlogo } from '../../images';
 
 @Component({
   selector: 'app-pct-login',
@@ -8,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class PctLoginComponent implements OnInit {
   userName = '';
-
+  pctlogo=pctlogo
   constructor(private router: Router) {}
 
   ngOnInit() {

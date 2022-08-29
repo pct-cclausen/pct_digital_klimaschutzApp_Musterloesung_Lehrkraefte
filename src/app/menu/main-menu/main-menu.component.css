@@ -1,0 +1,87 @@
+div{
+  text-align: center;
+  background-color: #acc9ff;
+  height: 19.1cm;
+}
+
+a{
+  font-size: larger;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-shadow: 2px 2px 4px #000000;
+  display: block;
+}
+
+a:link, a:visited {
+  color: white;
+  background: rgb(89, 164, 207);
+  text-decoration: none;
+  padding: 14px 25px;
+  width: 100px;
+  height: 50px;
+  line-height: 2.5em;
+  margin-left: auto;
+}
+
+a:hover {
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  padding: 14px 25px;
+}
+
+a.scan{
+  border-radius: 15px 15px 0px 0px;
+  border-top: 2px solid #000000;
+  border-left: 2px solid #000000;
+  border-right: 2px solid #000000;
+  position:absolute;
+  top: 3.8cm;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+a.scores{
+border: 2px solid #000000;
+position:absolute;
+top: 5.93cm;
+left: 50%;
+-ms-transform: translate(-50%, -50%);
+transform: translate(-50%, -50%);
+}
+
+a.create{
+border-radius: 0px 0px 15px 15px;
+border-bottom: 2px solid #000000;
+border-left: 2px solid #000000;
+border-right: 2px solid #000000;
+position:absolute;
+top: 8.06cm;
+left: 50%;
+-ms-transform: translate(-50%, -50%);
+transform: translate(-50%, -50%);
+}
+
+button{
+  background-color: #c40000;
+  color: white;
+  text-shadow: 2px 2px 4px #000000;
+  margin: 0;
+  top: 65%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  height: 60px;
+  width:130px;
+  border-radius: 25px;
+  position: absolute;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: large;
+  cursor: pointer;
+}
+
+button:hover{
+  background-color: #ee0000;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+} 

@@ -1,0 +1,55 @@
+div {
+  background-color: #cfe0ff;
+  padding: 20px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  
+}
+div.head{
+  border-radius: 5px 5px 0px 0px;
+}
+div.password{
+  border-radius: 0px 0px 0px 0px;
+}
+div.beschreibung{
+  border-radius: 0px 0px 0px 0px;
+}
+div.punkte{
+  border-radius: 0px 0px 0px 0px;
+}
+div.button{
+  border-radius: 0px 0px 5px 5px;
+}
+input[type=text], input[type=number] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+input[type=text].passwort{
+  border-radius: 20px;
+  border: 1px solid #ccc;
+}
+input[type=text].beschreibung{
+  border-radius: 20px;
+  border: 1px solid #ccc;
+}
+input[type=number].punkte{
+  border-radius: 20px;
+  border: 1px solid #ccc;
+}
+p{
+  font-size: large;
+}
+button{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  position: absolute;
+  top: 12.2cm;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  border: 1px solid #ccc;
+  border-radius: 20px;
+}
