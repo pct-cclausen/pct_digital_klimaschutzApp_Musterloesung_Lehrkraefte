@@ -6,6 +6,29 @@ export interface HighScoreEntry {
   points: number;
 }
 
+var temp: HighScoreEntry[] = [
+  {
+    name: 'Player 1',
+    points: 555,
+  },
+  {
+    name: 'Player 2',
+    points: 444,
+  },
+  {
+    name: 'Player 3',
+    points: 333,
+  },
+  {
+    name: 'Player 4',
+    points: 222,
+  },
+  {
+    name: 'Player 5',
+    points: 111,
+  },
+];
+
 export interface ScanEvent {
   groupName: string;
   qrId: number;
@@ -33,7 +56,8 @@ export class BackendService {
   }
 
   async getHighscores(): Promise<HighScoreEntry[]> {
-    if (!this.isDevEnvironment()) {
+    return temp
+    /*if (!this.isDevEnvironment()) {
       throw new Error('Implement a real backend for production!');
     } else {
       const byName: Record<string, number> = {};
@@ -49,7 +73,7 @@ export class BackendService {
       highscores.sort((a, b) => b.points - a.points);
 
       return highscores;
-    }
+    }*/
   }
 
   async addPoints(jwtScanned: string, groupName: string): Promise<number> {

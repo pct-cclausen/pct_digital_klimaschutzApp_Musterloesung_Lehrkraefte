@@ -53,3 +53,10 @@ button{
   border: 1px solid #ccc;
   border-radius: 20px;
 }
+button.back{
+  background-color: transparent;
+  border-color: transparent;
+  position: absolute;
+  top: 0.75cm;
+  left: 92%;
+}
