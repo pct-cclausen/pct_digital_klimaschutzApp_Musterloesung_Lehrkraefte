@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import * as jose from 'jose';
+import { HttpClient } from '@angular/common/http';
 
 export interface HighScoreEntry {
   name: string;
@@ -29,7 +30,7 @@ export class BackendService {
   localScanEvents: ScanEvent[] = [];
   localCodes: QRCode[] = [];
 
-  constructor() {
+  constructor(private http: HttpClient) {
     if ('local-codes' in localStorage) {
       this.localCodes = JSON.parse(localStorage['local-codes']);
     }
@@ -43,17 +44,36 @@ export class BackendService {
     localStorage['local-scan-events'] = JSON.stringify(this.localScanEvents);
   }
 
-  isDevEnvironment() {
+  isStackBlitzEnvironment() {
+    return window.location.href.indexOf('stackblitz') !== -1;
+  }
+
+  isLocalhostEnvironment() {
     return (
       window.location.href.indexOf('localhost') !== -1 ||
-      window.location.href.indexOf('127.0.0.1') !== -1 ||
-      window.location.href.indexOf('stackblitz') !== -1
+      window.location.href.indexOf('127.0.0.1') !== -1
     );
   }
 
+  getServerHost() {
+    if (this.isLocalhostEnvironment()) {
+      return 'http://127.0.0.1:3010';
+    } else {
+      return '';
+    }
+  }
+
   async getHighscores(): Promise<HighScoreEntry[]> {
-    if (!this.isDevEnvironment()) {
-      throw new Error('Implement a real backend for production!');
+    if (!this.isStackBlitzEnvironment()) {
+      const callResult = await this.http
+        .get(this.getServerHost() + '/api/highscores', {
+          responseType: 'text',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        })
+        .toPromise();
+      return JSON.parse(callResult);
     } else {
       const byName: Record<string, number> = {};
       for (const event of this.localScanEvents) {
@@ -72,8 +92,21 @@ export class BackendService {
   }
 
   async addPoints(jwtScanned: string, groupName: string): Promise<ScanResult> {
-    if (!this.isDevEnvironment()) {
-      throw new Error('Implement a real backend for production!');
+    if (!this.isStackBlitzEnvironment()) {
+      const callResult = await this.http
+        .post(
+          this.getServerHost() + '/api/add-points',
+          JSON.stringify({ jwtScanned, groupName }),
+          {
+            responseType: 'text',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          }
+        )
+        .toPromise();
+
+      return JSON.parse(callResult);
     } else {
       // in dev mode no verification is done
       // in production the verification will happen in the server
@@ -88,17 +121,13 @@ export class BackendService {
         const claims = jose.decodeJwt(jwtScanned);
         const id = Number(claims.jti);
 
-        console.log('scanned ' + id);
-
         const localCode = this.localCodes.find((lc) => lc.id === id);
-
-        console.log(this.localCodes);
 
         if (localCode != null) {
           result.qrCodeFound = localCode;
 
           const scannedBefore = this.localScanEvents.find(
-            (le) => le.qrId === id
+            (le) => le.qrId === id && le.groupName == groupName
           );
           if (scannedBefore == null) {
             this.localScanEvents.push({
@@ -121,8 +150,25 @@ export class BackendService {
   }
 
   async createQRCode(description: string, points: number, key: string) {
-    if (!this.isDevEnvironment()) {
-      throw new Error('Implement a real backend for production!');
+    if (!this.isStackBlitzEnvironment()) {
+      const callResult = await this.http
+        .post(
+          this.getServerHost() + '/api/create-qr-code',
+          JSON.stringify({
+            description,
+            points,
+            key,
+          }),
+          {
+            responseType: 'text',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          }
+        )
+        .toPromise();
+
+      return JSON.parse(callResult);
     } else {
       this.localCodes.push({
         id: this.localCodes.length + 1,
