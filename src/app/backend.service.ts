@@ -29,6 +29,20 @@ export class BackendService {
   localScanEvents: ScanEvent[] = [];
   localCodes: QRCode[] = [];
 
+  constructor() {
+    if ('local-codes' in localStorage) {
+      this.localCodes = JSON.parse(localStorage['local-codes']);
+    }
+    if ('local-scan-events' in localStorage) {
+      this.localScanEvents = JSON.parse(localStorage['local-scan-events']);
+    }
+  }
+
+  storeLocalData() {
+    localStorage['local-codes'] = JSON.stringify(this.localCodes);
+    localStorage['local-scan-events'] = JSON.stringify(this.localScanEvents);
+  }
+
   isDevEnvironment() {
     return (
       window.location.href.indexOf('localhost') !== -1 ||
@@ -92,6 +106,9 @@ export class BackendService {
               points: localCode.points,
               qrId: localCode.id,
             });
+
+            this.storeLocalData();
+
             result.scannedFirst = true;
           }
         }
@@ -118,6 +135,8 @@ export class BackendService {
       })
         .setProtectedHeader({ alg: 'HS256' })
         .sign(new TextEncoder().encode(key));
+
+      this.storeLocalData();
 
       return jwt;
     }
