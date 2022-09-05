@@ -1,1 +1,29 @@
-scan !
+<ngx-scanner-qrcode
+  [hidden]="!action.isStart"
+  #action="scanner"
+  (data)="onData($event)"
+  (error)="onError($event)"
+></ngx-scanner-qrcode>
+
+<p *ngIf="action.isLoading">⌛ Lade Video...</p>
+
+<div *ngIf="!action.isStart">
+  <button
+    (click)="action.toggleCamera()"
+    class="btn"
+    [class.btn-info]="!action.isStart"
+    [class.btn-warning]="action.isStart"
+    [disabled]="action.isLoading"
+  >
+    <img
+      *ngIf="!action.isStart"
+      src="https://img.icons8.com/ios/50/000000/no-camera--v2.png"
+      width="30px"
+    />
+    Kamera starten
+  </button>
+</div>
+
+<a routerLink="..">
+  <button class="back" type="button">❌</button>
+</a>

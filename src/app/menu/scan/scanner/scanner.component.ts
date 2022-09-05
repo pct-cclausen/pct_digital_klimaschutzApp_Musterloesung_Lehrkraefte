@@ -1,9 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-// This needs to be a scanner based on
-// https://stackblitz.com/edit/angular-ngx-scanner-qrcode?file=src%2Fapp%2Fapp.component.html
-
-// first step is to integrate the libary into the dependencies and get it to work to just console log the contents of the scanned qr code
+import { BackendService } from '../../../backend.service';
 
 @Component({
   selector: 'app-scanner',
@@ -11,7 +7,33 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./scanner.component.css'],
 })
 export class ScannerComponent implements OnInit {
-  constructor() {}
+  constructor(private backend: BackendService) {}
 
   ngOnInit() {}
+
+  async onData(data: any) {
+    console.log(data);
+
+    const result = await this.backend.addPoints(
+      data,
+      localStorage['current-user']
+    );
+
+    if (result.qrCodeFound == null) {
+      // Do nothing, this happens a lot
+    } else if (result.scannedFirst) {
+      alert(
+        result.qrCodeFound.description +
+          '\nDu hast ' +
+          result.qrCodeFound.points +
+          ' Punkte erhalten!'
+      );
+    } else {
+      alert('Leider gibt es für mehrfache Scans keine Punkte');
+    }
+  }
+
+  onError(e: any) {
+    alert('Es gab einen Fehler: ' + JSON.stringify(e));
+  }
 }

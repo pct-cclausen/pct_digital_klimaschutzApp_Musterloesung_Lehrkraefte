@@ -1,12 +1,26 @@
-<div class="head"> <p>QR Code erzeugen</p> </div>
+<div class="head"><p>QR Code erzeugen</p></div>
 
-<div class="password">Passwort:<input [(ngModel)]="password" type="text" placeholder="Passwort..." class="passwort"/></div>
+<div class="password">
+  Passwort:<input
+    [(ngModel)]="password"
+    type="text"
+    placeholder="Passwort..."
+    class="passwort"
+  />
+</div>
 
-<div class="beschreibung">Beschreibung:<input [(ngModel)]="description" type="text" placeholder="Beschreibung..." class="beschreibung"/></div>
+<div class="beschreibung">
+  Beschreibung:<input
+    [(ngModel)]="description"
+    type="text"
+    placeholder="Beschreibung..."
+    class="beschreibung"
+  />
+</div>
 
 <div class="punkte">
   Punkte:
-  <input [(ngModel)]="points" type="number" class="punkte"/>
+  <input [(ngModel)]="points" type="number" class="punkte" />
 </div>
 
 <div class="button">
@@ -22,4 +36,6 @@
   ></qrcode>
   <a [href]="dlLink" download="qrcode">Download</a>
 </div>
-<a href="menu/main-menu"> <button class="back" type="button">❌</button> </a>
+<a routerLink="..">
+  <button class="back" type="button">❌</button>
+</a>

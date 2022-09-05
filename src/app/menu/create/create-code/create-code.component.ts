@@ -24,12 +24,11 @@ export class CreateCodeComponent implements OnInit {
       this.description.length > 0 &&
       this.points > 0
     ) {
-      const id = await this.backend.storeQRCodeDescription(
+      this.jwt = await this.backend.createQRCode(
         this.description,
-        this.points
+        this.points,
+        this.password
       );
-      const jwt = await this.backend.generateQRCode(id, this.password);
-      this.jwt = jwt;
     }
   }
 
