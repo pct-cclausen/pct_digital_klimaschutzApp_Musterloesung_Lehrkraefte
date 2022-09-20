@@ -11,9 +11,17 @@ import { ScoresDisplayComponent } from './menu/scores/scores-display/scores-disp
 import { CreateCodeComponent } from './menu/create/create-code/create-code.component';
 import { QRCodeModule } from 'angularx-qrcode';
 import { NgxScannerQrcodeModule } from 'ngx-scanner-qrcode';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  imports: [BrowserModule, AppRoutingModule, FormsModule, QRCodeModule, NgxScannerQrcodeModule],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    AppRoutingModule,
+    FormsModule,
+    QRCodeModule,
+    NgxScannerQrcodeModule,
+  ],
   declarations: [
     MainMenuComponent,
     PctLoginComponent,
