@@ -9,7 +9,7 @@ import { pctlogo } from '../../images';
 })
 export class PctLoginComponent implements OnInit {
   userName = '';
-  pctlogo=pctlogo
+  pctlogo = pctlogo;
   constructor(private router: Router) {}
 
   ngOnInit() {
