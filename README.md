@@ -1,6 +1,6 @@
 # Schulprojekt Template
 
-[![Fork mit Stackblitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/fork/github/pct-cclausen/angular-ivy-mc4ukw?title=WIP%20Schulprojekt&terminal=start)
+[![Fork mit Stackblitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/fork/github/pct-cclausen/pct_digital_klimaschutzApp_Musterloesung_Lehrkraefte?title=WIP%20Schulprojekt&terminal=start)
 
 # Schritt zum Einrichten eines Forks
 
