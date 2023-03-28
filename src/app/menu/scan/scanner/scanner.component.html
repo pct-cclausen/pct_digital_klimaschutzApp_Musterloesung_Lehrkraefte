@@ -9,7 +9,7 @@
 
 <div *ngIf="!action.isStart">
   <button
-    (click)="action.isStart ? action.stop() : action.start()"
+    (click)="action.toggleCamera()"
     class="btn"
     [class.btn-info]="!action.isStart"
     [class.btn-warning]="action.isStart"
