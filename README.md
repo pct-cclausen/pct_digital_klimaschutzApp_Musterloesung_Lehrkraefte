@@ -18,3 +18,17 @@ Wochen
 3. Die Create Seite (CSS & Funktion)
 4. Die Highscores Seite (CSS & Funktion)
 5. Deployment (Showcase, ich gehe davon aus danach ist zu Ende, also keine Hausaufgabe)
+
+
+# Showcase
+![Login](1_login.png)
+
+![Menu](2_menu.png)
+
+![Create](3_create.png)
+
+![Scan](4_scan.png)
+
+![Points](5_points.png)
+
+![Highscore](6_highscore.png)
